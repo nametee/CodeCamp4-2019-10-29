@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2019-10-29 labs 5</title>
+</head>
+<body>
+    Number : <input type="text" id="number"><br>
+    <button type="button" id="convert10To2" onclick="convert10To2()">Convert radix 10-2</button><br>
+    <button type="button" id="convert2To10" onclick="convert2To10()">Convert radix 2-10</button>
+    <script>
+        const decimalToBinary = (num)=>{ 
+            let result = "";
+            while(num > 0 ){
+                result = (num % 2) + result;
+                num = Math.floor(num/2);
+            }
+            return result;
+        }
+        const binaryToDecimal = (num)=>{ 
+            let result = 0;
+
+            for(let i =0; i< num.length; i++){
+                result = (result * 2) + parseInt(num[i]);
+            } 
+            /*
+            result = num.split('').reverse().map((item,index)=> { 
+                let rObj = {};
+                rObj[item] = 1 << index;
+                return rObj; 
+            }); */ 
+            return result;
+        }
+        const convert10To2= ()=>{
+            let num = parseInt(document.getElementById("number").value) ;  
+            alert(decimalToBinary(num)); 
+        }
+        const convert2To10= ()=>{
+            let num = document.getElementById("number").value;  
+            alert(binaryToDecimal(num)); 
+        }
+        
+    </script>
+</body>
+</html>

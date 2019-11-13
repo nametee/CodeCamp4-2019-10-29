@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2019-10-29 labs 1</title>
+</head>
+<body> 
+    
+    radix : <input type="text" id="radix" placeholder="10" value="10">
+    Number : <input type="text" id="number">
+    <button type="button" id="checkEven" onclick="checkEvenNumber()">Check Even Number</button> 
+    <script> 
+        const isHex = (h) => {
+            var a = parseInt(h,16);
+            console.log('isHex : ' +  a.toString(16) + " , " + h.toLowerCase())
+            return (a.toString(16) === h.toLowerCase());
+        }
+
+        const isNine = (n) => {
+            var a = parseInt(n,9);
+            console.log('isNine : ' +  a.toString(9) + ' , ' + n.toLowerCase())
+            return (a.toString(9) === n.toLowerCase());
+        } 
+
+        const numberIsEven = (num,radix) => { 
+            return ; 
+        }
+
+        const checkEvenNumber = ()=>{
+            let num = document.getElementById('number').value; 
+            let radix = document.getElementById('radix').value; 
+            let numCheck;
+           // เลขฐาน ที่เป็น เลขคู่ ให้ดูตัวสุดท้ายก็พอ mod 2 แล้วได้อะไร
+           // เลขฐาน ที่เป็นเลขคี่ เอาทุกตัวเข้ามาบวกกันให้หมด
+            if (radix % 2 === 0 ) {
+                numCheck  = num[num.length -1]; 
+                numCheck = parseInt(numCheck,radix); 
+            }else{
+                let array = num.split(''); 
+                numCheck = array.reduce((sum, char) => parseInt(sum)+parseInt(char), 0);
+            } 
+            alert(numCheck % 2 === 0 ? num  + " is even number" : num + " is odd number" );
+        } 
+    </script>
+</body>
+</html>

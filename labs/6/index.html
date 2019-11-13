@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2019-10-29 labs 6</title>
+</head>
+<body>
+    Number : <input type="text" id="number">
+    <button type="button" id="checkPrimeNumber" onclick="checkPrimeNumber()"> Check Prime Number</button>
+    <script>
+        const checkPrimeNumber= () => {
+            let num = parseInt(document.getElementById('number').value) ;
+            let sl  = Math.sqrt(num); 
+            sl = sl < 2 ? 0 : sl;
+            let checkNum = Array.from({ length: sl }, (v, i) => i +=2);
+            //let checkNum = [...Array(sl).keys()].map(x => x+=2); 
+            console.log(checkNum);
+            let result = true;
+            for(let itemv in checkNum){
+                if (num % checkNum[item] === 0){
+                    result = false;
+                    break;
+                } 
+            }
+            // other algorithm
+/*
+            for (let i = 2; i * i <= num; i++){
+                if (num % i === 0 ){
+                    result = false;
+                    break;
+                }
+            }
+*/
+            alert("Number : " + num + (result ? " is prime number." : " is not prime number."));
+        } 
+    </script>
+</body>
+</html>

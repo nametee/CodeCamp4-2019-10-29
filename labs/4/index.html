@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2019-10-29 labs 4</title>
+</head>
+<body>
+    Number : <input type="text" id="number">
+    <button type="button" id="sum" onclick="sum()">Sum</button>
+    <script>
+        const sum = ()=> {
+            let num = parseInt(document.getElementById("number").value);
+            let sumNum =( (1 +num)*num) / 2 ;
+            alert("Result : " + sumNum);
+        }
+        const sumLoop = ()=> {
+            let num = parseInt(document.getElementById("number").value);
+            let sumNum = 0;
+            let index = 0;
+            while(index < num){
+                index++;
+                sumNum += index; 
+            }
+            alert("Result : " + sumNum);
+        }
+    </script>
+</body>
+</html>

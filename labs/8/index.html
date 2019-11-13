@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>2019-10-29 labs 8</title>
+</head>
+<body>
+    Array Numbers [a,b,c,...]: <input type="text" id="numbers"><br>
+    Check Sum Number : <input type="text" id="sumNumber">
+    <button type="button" id="checkSum" onclick="checkSum()">Check</button> 
+    <script>
+        const checkSum = () => {
+            let numbers = document.getElementById('numbers').value.split(',');
+            let sumNum = parseInt(document.getElementById('sumNumber').value);
+            let numA ,numB;
+            if (numbers.length > 2) {
+                // Big O [O(n^2)]
+                for(let i = 0;i < numbers.length; i++){
+                    for(let j = numbers.length-1; j > i; j--){
+                        let a =parseInt(numbers[i]);
+                        let b =parseInt(numbers[j]);
+                        console.log(a + '+' + b + ' = ' + (a + b));
+                        if(a+ b === sumNum){
+                            numA=a;
+                            numB=b;
+                            break;
+                        }
+                    }
+                    if (numA !== undefined && numB !== undefined){break;}
+                }
+                /* 
+                //Big O [O(n)]
+               let data = new Map();
+               let output = false;
+                for (let i = 0; i < numbers.length; i++) { 
+                    let num = parseFloat(numbers[i]);
+                    if(data.has(num)) data.set(num, data.get(num) + 1) 
+                    else data.set(num, 1) 
+                    console.log(data);
+                } 
+                for (let i = 0; i < numbers.length; i++) { 
+                    let num = parseFloat(numbers[i]); 
+                    if (num * 2 == sumNum) { 
+                        if (data.get(sumNum - num) >= 2) output = true 
+                    } else {  
+                        if (data.get(sumNum - num) >= 1) output = true 
+                    } 
+                } 
+                console.log(output)
+                */ 
+            } 
+            if (numA === undefined && numB === undefined) { 
+                alert("Not has number for check sum");
+            }else{
+                alert("Number : " + numA + ' + ' + numB + " = " + sumNum);
+            } 
+
+        }
+    </script>
+</body>
+</html>
